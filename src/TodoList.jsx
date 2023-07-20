@@ -1,8 +1,5 @@
-import Paper from "@mui/material/Paper";
-import List from "@mui/material/List";
-import ListItem from "@mui/material/ListItem";
-import Divider from "@mui/material/Divider";
-import ListItemText from "@mui/material/ListItemText";
+import { Paper, List } from "@mui/material";
+import Todo from "./Todo";
 
 /* eslint-disable react/prop-types */
 const TodoList = (props) => {
@@ -11,10 +8,7 @@ const TodoList = (props) => {
       <List>
         {props.todos.map((todo) => (
           <>
-            <ListItem>
-              <ListItemText>{todo.task}</ListItemText>
-            </ListItem>
-            <Divider />
+            <Todo task={todo.task} key={todo.id} completed={todo.completed} />
           </>
         ))}
       </List>
