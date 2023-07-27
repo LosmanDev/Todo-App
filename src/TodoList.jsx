@@ -2,14 +2,19 @@ import { Paper, List } from "@mui/material";
 import Todo from "./Todo";
 
 /* eslint-disable react/prop-types */
-const TodoList = (props) => {
+const TodoList = ({ todos, removeTodo, toggleTodo }) => {
   return (
     <Paper>
       <List>
-        {props.todos.map((todo) => (
-          <>
-            <Todo task={todo.task} key={todo.id} completed={todo.completed} />
-          </>
+        {todos.map((todo) => (
+          <Todo
+            id={todo.id}
+            task={todo.task}
+            key={todo.id}
+            completed={todo.completed}
+            removeTodo={removeTodo}
+            toggleTodo={toggleTodo}
+          />
         ))}
       </List>
     </Paper>

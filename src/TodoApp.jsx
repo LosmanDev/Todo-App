@@ -6,27 +6,41 @@ import TodoForm from "./TodoForm";
 const TodoApp = () => {
   const initialTodos = [
     {
-      id: crypto.randomUUID(),
+      id: 1,
       task: "Clean the fish tank",
       completed: false,
     },
     {
-      id: crypto.randomUUID(),
+      id: 2,
       task: "Walk the Dog",
       completed: false,
     },
     {
-      id: crypto.randomUUID(),
+      id: 3,
       task: "Wash my cat",
-      completed: false,
+      completed: true,
     },
   ];
+
   const [todos, setTodos] = useState(initialTodos);
   const addTodo = (newTodoText) => {
     setTodos([
       ...todos,
       { id: crypto.randomUUID(), task: newTodoText, completed: false },
     ]);
+  };
+
+  const removeTodo = (todoId) => {
+    //filter out removed todo
+    const updatedTodos = todos.filter((todo) => todo.id !== todoId);
+    setTodos(updatedTodos);
+  };
+
+  const toggleTodo = (todoId) => {
+    const updatedTodos = todos.map((todo) =>
+      todo.id === todoId ? { ...todo, completed: !todo.completed } : todo
+    );
+    setTodos(updatedTodos);
   };
   return (
     <Paper
@@ -49,7 +63,11 @@ const TodoApp = () => {
       >
         <Grid item xs={11} md={8} lg={4}>
           <TodoForm addTodo={addTodo} />
-          <TodoList todos={todos} />
+          <TodoList
+            todos={todos}
+            removeTodo={removeTodo}
+            toggleTodo={toggleTodo}
+          />
         </Grid>
       </Grid>
     </Paper>
