@@ -1,0 +1,16 @@
+.nav-color{
+    background-color: #102C57 !important;
+    color: #DAC0A3 !important;
+    
+}
+
+.todo-grid{
+    background-color: #EADBC8;
+    color: #102C57;
+}
+
+.todo-text{
+    font-weight: bold !important;
+    font-size: 20px !important;
+}
+

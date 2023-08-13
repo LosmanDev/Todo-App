@@ -5,24 +5,6 @@ import TodoForm from "./TodoForm";
 
 const TodoApp = () => {
   const initialTodos = JSON.parse(window.localStorage.getItem("todos") || "[]");
-  //Todo Data to re-render component using state
-  // const initialTodos = [
-  //   {
-  //     id: 1,
-  //     task: "Wash Car",
-  //     completed: false,
-  //   },
-  //   {
-  //     id: 2,
-  //     task: "Oil Change",
-  //     completed: false,
-  //   },
-  //   {
-  //     id: 3,
-  //     task: "Feed cat",
-  //     completed: true,
-  //   },
-  // ];
 
   const [todos, setTodos] = useState(initialTodos);
 
@@ -64,12 +46,16 @@ const TodoApp = () => {
         padding: 0,
         margin: 0,
         height: "100vh",
-        backgroundColor: "#fafafa",
+        backgroundColor: "#F8F0E5",
       }}
     >
-      <AppBar color="primary" position="static" style={{ height: "64px" }}>
+      <AppBar
+        className="nav-color"
+        position="static"
+        style={{ height: "64px" }}
+      >
         <Toolbar>
-          <Typography color="inherit">TODOS WITH HOOKS</Typography>
+          <Typography className="todo-text">Todo List</Typography>
         </Toolbar>
       </AppBar>
       <Grid
